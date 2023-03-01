@@ -55,7 +55,7 @@ if(HAVE_WORKING_LIBINTL AND GETTEXT_FOUND AND XGETTEXT_PRG AND ICONV_PRG)
     OUTPUT ${NVIM_POT}
     COMMAND $<TARGET_FILE:nvim> -u NONE -i NONE -n --headless --cmd "set cpo+=+"
       -S ${CMAKE_CURRENT_SOURCE_DIR}/tojavascript.vim ${NVIM_POT} ${PROJECT_SOURCE_DIR}/runtime/optwin.vim
-    COMMAND ${XGETTEXT_PRG} -o ${NVIM_POT} --default-domain=nvim
+      COMMAND ${XGETTEXT_PRG} --from-code UTF-8 -o ${NVIM_POT} --default-domain=nvim
       --add-comments --keyword=_ --keyword=N_ --keyword=NGETTEXT:1,2
       -D ${CMAKE_CURRENT_SOURCE_DIR} -D ${CMAKE_CURRENT_BINARY_DIR}
       ${NVIM_RELATIVE_SOURCES} optwin.js
